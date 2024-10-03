@@ -1,3 +1,5 @@
+import { app } from "./firebase.js";
+//Importamos el archivo de registro
+import "./signupForm.js";
 
-import { app } from "./firebase.js"
 console.log(app);

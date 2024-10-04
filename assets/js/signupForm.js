@@ -21,11 +21,16 @@ signUpForm.addEventListener("submit", async (e) => {
       password
     );
 
-    //Registro correcto
-    console.log(userCredentials);
-
     //Mostrar menzaje de exito
     showMessage("Usuario resgistrado", "success");
+
+    //Cerrar el modal
+    const signupModal = document.querySelector("#signup-modal");
+    const modal = bootstrap.Modal.getInstance(signupModal);
+    modal.hide();
+
+    //Limpiar el formulario
+    signUpForm.reset();
   } catch (error) {
     //Registro fallido
     console.log(error);

@@ -5,6 +5,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/fireba
 
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 
+import {
+  getFirestore,
+  collection,
+  doc,
+  addDoc,
+  onSnapshot,
+} from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCK5Ncqf0HtcvWMfRLrFkSE2lHO2iZuBk8",
@@ -20,3 +28,13 @@ export const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
+
+// Initialize Firestore
+export const db = getFirestore();
+
+// Operaciones CRUD
+export const createTask = (title, description) =>
+  addDoc(collection(db, "tasks"), { title, description });
+
+export const onGetTask = (callback) =>
+  onSnapshot(collection(db, "tasks"), callback);

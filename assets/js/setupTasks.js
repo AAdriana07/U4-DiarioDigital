@@ -35,7 +35,8 @@ export const setupTasks = (user) => {
           description,
           user.displayName,
           user.photoURL,
-          user.email
+          user.email,
+          user.metadata.creationTime
         );
         //Mostrar mensaje de exito
         showMessage("Tarea creada", "success");

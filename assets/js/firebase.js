@@ -41,7 +41,8 @@ export const createTask = (
   description,
   userName,
   userImage,
-  userEmail
+  userEmail,
+  metaData
 ) =>
   addDoc(collection(db, "tasks"), {
     title,
@@ -49,6 +50,7 @@ export const createTask = (
     userName,
     userImage,
     userEmail,
+    metaData,
   });
 
 export const onGetTask = (callback) =>

@@ -28,6 +28,7 @@ export const setupTasks = (user) => {
 
     // Crear una nueva tarea
     try {
+      const metaData = new Date().toISOString();
       if (!editStatus) {
         //Crea tarea
         await createTask(
@@ -36,14 +37,14 @@ export const setupTasks = (user) => {
           user.displayName,
           user.photoURL,
           user.email,
-          user.metadata.creationTime
+          metaData
         );
         //Mostrar mensaje de exito
         showMessage("Tarea creada", "success");
         //Limpiar el formulario
       } else {
         //Actualizar tarea
-        await updateTask(editId, { title, description });
+        await updateTask(editId, { title, description, metaData });
         //Mostrar menzaje de éxito
         showMessage("Tarea actualizada", "success");
         //Cambiar el estado de edición
@@ -79,6 +80,7 @@ export const setupTasks = (user) => {
               data.userImage
             }" alt="${data.userName}" />
             <p class="m-0">${data.userName}</p>
+            <p class="m-0 gap-5">Fecha y hora: ${data.metaData}</p>
           </div>
           ${
             user.email === data.userEmail
@@ -92,6 +94,7 @@ export const setupTasks = (user) => {
         <hr />
         <h4>${data.title}</h4>
         <p>${data.description}</p>
+        
       </article>
       `;
     });

@@ -28,7 +28,9 @@ export const setupTasks = (user) => {
 
     // Crear una nueva tarea
     try {
-      const metaData = new Date().toISOString();
+      const timeData = new Date().toLocaleString("es-PE", {
+        timeZone: "America/Lima",
+      });
       if (!editStatus) {
         //Crea tarea
         await createTask(
@@ -37,7 +39,7 @@ export const setupTasks = (user) => {
           user.displayName,
           user.photoURL,
           user.email,
-          metaData
+          timeData
         );
         //Mostrar mensaje de exito
         showMessage("Tarea creada", "success");
@@ -80,7 +82,7 @@ export const setupTasks = (user) => {
               data.userImage
             }" alt="${data.userName}" />
             <p class="m-0">${data.userName}</p>
-            <p class="m-0 gap-5">Fecha y hora: ${data.metaData}</p>
+            <p class="m-0 gap-5">Creado el: ${data.timeData}</p>
           </div>
           ${
             user.email === data.userEmail

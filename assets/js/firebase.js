@@ -3,7 +3,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/fireba
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+import {
+  getAuth,
+  updateProfile,
+} from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 
 import {
   getFirestore,
@@ -62,3 +65,5 @@ export const updateTask = (id, newData) =>
   updateDoc(doc(db, "tasks", id), newData);
 
 export const deleteTask = (id) => deleteDoc(doc(db, "tasks", id));
+
+export { updateProfile };

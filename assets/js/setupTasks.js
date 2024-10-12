@@ -79,7 +79,7 @@ export const setupTasks = (user) => {
         <header class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center gap-3">
             <img class="task-profile-picture rounded-circle" src="${
-              data.userImage
+              data.userImage ? data.userImage : "./assets/img/gato.jpg"
             }" alt="${data.userName}" />
             <p class="m-0">${data.userName}</p>
             <p class="m-0 gap-5">Creado el: ${data.timeData}</p>

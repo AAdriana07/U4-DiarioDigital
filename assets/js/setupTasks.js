@@ -75,13 +75,13 @@ export const setupTasks = (user) => {
       const data = doc.data();
 
       tasksHtml += `
-      <article class="task-container border border-2 rounded-2 p-3 my-3">
+      <article class=" caja task-container border border-2 rounded-2 p-3 my-3">
         <header class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center gap-3">
             <img class="task-profile-picture rounded-circle" src="${
               data.userImage ? data.userImage : "./assets/img/gato.jpg"
             }" alt="${data.userName}" />
-            <p class="m-0">${data.userName}</p>
+            <p class="m-0 text-"><b>${data.userName}</b></p>
             <p class="m-0 gap-5">Creado el: ${data.timeData}</p>
           </div>
           ${
